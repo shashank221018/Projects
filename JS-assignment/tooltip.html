@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+    <title>Document</title>
+    <style>
+        .tooltip {
+          position: relative;
+          display: inline-block;
+          transition: all 0.3s ease-in-out;
+        }
+        .tooltip i{
+    font-size: 12px;
+    font-weight: 600;
+    background: #f2f6ff;
+    padding: 10px 15px;
+    border-radius: 22px;
+    color: #2142bb;
+    margin-top: 60px;
+        }
+        .tooltip .tooltiptext {
+    display: none;
+    width: 430px;
+    background-color: #97144d;
+    color: #ffffff;
+    text-align: center;
+    border-radius: 10px;
+    padding: 9px 8px;
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    font-size: 12px;
+    left: 143%;
+    box-shadow: 0px 3px 13px 0px rgb(177 174 174 / 15%);
+     transform: translateY(-50%);
+    position: absolute;
+    z-index: 1; 
+    transition: all 0.3s ease-in-out;
+     }
+   .tooltip .tooltiptext:before{
+    content: " ";
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 9px 5.5px 0 6.5px;
+    border-color: #97144d transparent transparent transparent;
+    top: 50%;
+    transform: rotate(90deg) translateX(-50%);
+    position: absolute;
+    left: -2%;
+    z-index: 1;
+        }
+     .tooltip:hover .tooltiptext {
+         display: block;
+        }
+    .tooltip:focus .tooltiptext {
+         display: block;
+        }
+        </style>
+</head>
+<body>
+    <div class="tooltip"><svg width="25" height="24" viewBox="0 0 531 532" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M291.84 157.373C291.84 171.832 280.121 183.556 265.663 183.556C251.204 183.556 239.485 171.832 239.485 157.373C239.485 142.92 251.204 131.196 265.663 131.196C280.121 131.196 291.84 142.92 291.84 157.373Z" fill="#97144d"/>
+        <path d="M265.667 27.1466C397.298 27.1466 504.387 134.24 504.387 265.867C504.387 397.493 397.294 504.6 265.667 504.6C134.04 504.6 26.9336 397.512 26.9336 265.88C26.9336 134.24 134.032 27.1466 265.667 27.1466M265.667 0.625244C119.174 0.625244 0.413574 119.38 0.413574 265.879C0.413574 412.372 119.168 531.132 265.667 531.132C412.16 531.132 530.92 412.377 530.92 265.879C530.92 119.385 412.155 0.625244 265.667 0.625244V0.625244Z" fill="#97144d"/>
+        <path d="M247.093 219.253H284.224V400.573H247.093V219.253Z" fill="#97144d"/>
+        </svg>
+        <span class="tooltiptext">Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero distinctio, provident molestias autem alias praesentium voluptates reiciendis ea veniam illum reprehenderit corrupti repellat porro modi fugit eaque quaerat consequatur. Quaerat?</span>
+      </div>
+
+</body>
+</html>

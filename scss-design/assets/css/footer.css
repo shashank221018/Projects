@@ -1,0 +1,44 @@
+.footer-section {
+  background-image: url(/assets/images/footer-bg.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-top: 120px;
+}
+
+.subscribe-form input {
+  padding: 10px 20px;
+  background: rgba(17, 17, 17, 0.2509803922);
+  border-radius: 31px;
+  color: #fff;
+  border: 0px;
+}
+
+input.form-control::-moz-placeholder {
+  color: #fff;
+}
+
+input.form-control:-ms-input-placeholder {
+  color: #fff;
+}
+
+input.form-control::placeholder {
+  color: #fff;
+}
+
+.btn-theme {
+  width: 100%;
+  background: #fff;
+  border-radius: 30px;
+  padding: 10px 15px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.input-group-btn {
+  margin-left: -98px;
+  width: 29%;
+}
+
+.one-list-col h5 {
+  color: #fff;
+}/*# sourceMappingURL=footer.css.map */

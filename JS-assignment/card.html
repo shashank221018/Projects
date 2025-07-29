@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background: #f9f9f9;
+            padding: 30px 30px;
+            font-family: 'Montserrat';
+        }
+        #cardbox{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    
+}
+        .card {
+    background: #ffffff;
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 0px 3px 13px 0px rgb(14 14 14 / 15%);
+}
+.card p {
+    font-size: 20px;
+    font-weight: 600;
+    background: #dfdfdf;
+    width: fit-content;
+    padding: 6px 12px;
+    border-radius: 18px;
+
+}
+.card a{
+    color: #fd5d00;
+    text-decoration: none;
+    text-transform: capitalize;
+    font-weight: 700;
+}
+    </style>
+</head>
+<body>
+
+ <div class="main">
+<div id="cardbox">
+
+</div>
+ </div> 
+ 
+ 
+ 
+ <script>
+  let btn = document.getElementById('cardinfo');  
+  let wrapper = document.getElementsByClassName('main')[0];
+  let card = document.getElementById('cardbox');
+  let url = 'https://jsonplaceholder.typicode.com/posts';
+ 
+    function getData(){
+ fetch(url).then(res => res.json()).then(data =>{
+data.map((item)=>{
+  let carddiv = document.createElement('div');
+   carddiv.classList.add('card'); 
+  let id = document.createElement('p');
+  let title = document.createElement('a');
+  let body = document.createElement('h6');
+  
+  title.setAttribute('href', `https://www.google.com/search?q=${item.title}&rlz=1C1CHBD_enIN951IN952&biw=1366&bih=657&sxsrf=ALiCzsaKJ5k4F45SXbPN4LJfPUl7Wi1YRw%3A1661163636070&ei=dFgDY5jeA4DM2roPmfq8-AQ&ved=0ahUKEwiY6MPjnNr5AhUAplYBHRk9D08Q4dUDCA4&uact=5&oq=j&gs_lcp=Cgdnd3Mtd2l6EAMyBAgjECcyBAgjECcyBAgjECcyBAgAEEMyBAgAEEMyBAgAEEMyBAgAEEMyBAgAEEMyBAgAEEMyBAgAEEM6BwgAEEcQsAM6BwgAELADEEM6BwgjEOoCECc6DQguELEDEIMBENQCEEM6BQgAEIAEOgsIABCABBCxAxCDAToECC4QQzoLCC4QgAQQxwEQ0QM6CAgAELEDEIMBOgcIABCxAxBDOgcIABCABBAKOgsILhCABBDHARCvAToKCC4QsQMQ1AIQQ0oECEEYAEoECEYYAFDvDlinN2CoQWgGcAF4AIABmQGIAcQDkgEDMC4zmAEAoAEBsAEKyAEJwAEB&sclient=gws-wiz`)
+
+  id.innerHTML = item.id;
+  title.innerHTML = item.title;
+  body.innerHTML = item.body;
+
+  carddiv.append(id,title,body);
+  //console.log(carddiv)
+  card.append(carddiv)
+})
+ });
+}
+
+    getData();
+ 
+   
+ </script> 
+</body>
+</html>

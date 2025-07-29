@@ -1,0 +1,30 @@
+@media screen and (max-width:767px){
+    .d-flex{
+        flex-wrap: wrap;
+    }
+    .event-category-section .event-category-row{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .event-category-section .event-category-single-event{
+        flex-basis: 245px;
+        margin: 5px 0;
+    }
+    .popular-event-list{
+        flex-wrap: wrap;
+        li{
+            width: 100%;
+            justify-content: center;
+        }
+     
+    }
+    .single-organizer {
+        position: relative;
+        border: 1px solid #dfdfdf;
+        border-radius: 10px;
+        padding: 35px 5px;
+        background: #fff;
+        flex-basis: 157px;
+        margin: 5px 0;
+    }
+}
