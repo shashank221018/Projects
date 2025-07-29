@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  <style>
+   h4{
+      text-align: center;
+   }
+   input{
+      padding: 7px 10px;
+      border: 1px solid #333;
+      border-radius: 5px;
+      width: 200px;
+      display: inline-block;
+      margin-left: 10px;
+   }
+   button{
+    padding: 10px 20px;
+    font-family: 'Montserrat';
+    font-weight: 400;
+    border-radius: 30px;
+    background-color: #564FF2;
+    border: 0;
+    color: #fff;
+   
+}
+.main-div{
+   text-align: center;
+}
+.main-div div{
+padding: 10px ;
+}
+label{
+   width: 100px;
+}
+.text-center{
+   text-align: center;
+}
+  </style>  
+</head>
+<body>
+   <!--- <h4>Form Examples</h4>
+ <form class="simpleform">
+    <label>First Name</label>
+    <input type="text" id="fname" name="fname">
+    <label>Last Name</label>
+    <input type="text" id="lname" name="fname">
+    <button id="submit" >Submit</button>
+ </form>   -->
+
+<br><br>
+<h4>Calculate the Total Marks Obtained</h4>
+ <form>
+   <div class="main-div">
+      <div>
+         <label>Maths</label>
+         <input type="number" id="maths" name="maths">
+      </div>
+       <div>
+         <label>English</label>
+         <input type="number" id="english" name="english">
+       </div>
+       <div>
+         <label>History</label>
+         <input type="number" id="history" name="history">
+       </div>
+   <div>
+      <label>Geometry</label>
+      <input type="number" id="geometry" name="geometry">
+   </div>
+      <div>
+         <label>Geography</label>
+         <input type="number" id="geography" name="geography">
+      </div>
+      <button id="total">Total</button>
+   </div>
+   
+    <br><br>
+    <div class="text-center">
+      <p>Total marks obtained :<span id="marksobtained"></span></p>
+      <p>percentage:<span id="percent"></span></p>
+      <h4 id="grade"></h4>
+    </div>
+   
+ </form>
+ <script>
+    
+
+// let btn = document.getElementById("submit");
+
+// //btn.addEventListener('click', function(){
+// //})
+
+
+// btn.addEventListener('click', ((e)=>{
+//     e.preventDefault();
+//     console.log('hello');
+// formSubmit();
+// }));
+
+// function formSubmit(){
+//     let fname = document.getElementById("fname").value;
+// let lname = document.getElementById("lname").value;
+//     console.log(`${fname} ${lname}`);
+    
+// }
+
+//marks total
+let total = document.getElementById('total');
+
+total.addEventListener('click', ((e)=>{
+   e.preventDefault();
+   console.log('hello world');
+   marksTotal(); 
+}));
+
+function marksTotal(){
+    let maths = document.getElementById('maths').value;
+    let english = document.getElementById('english').value;
+    let history = document.getElementById('history').value;
+    let geometry = document.getElementById('geometry').value;
+    let geography = document.getElementById('geography').value;
+    let marksobtained = document.getElementById('marksobtained');
+   let percent = document.getElementById('percent');
+   let grade = document.getElementById('grade');
+
+    let total = parseInt(maths) + parseInt(english) + parseInt(history) + parseInt(geometry) + parseInt(geography);
+    marksobtained.innerText = total;
+
+    let percentage = (total/500) * 100;
+    percent.innerText = percentage.toFixed(2);
+
+    switch(true){
+        case (percentage <=45):
+        graderesult = "C";
+        break;
+        case (percentage >45 && percentage <=60 || percentage < 85):
+       graderesult = "B";
+        break;
+        case (percentage >= 85):
+           graderesult = "A";
+        
+    }
+   grade.innerText = "Your Grade is "+ graderesult; 
+}
+
+
+
+
+ </script>
+</body>
+</html>

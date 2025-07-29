@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li{
+            display: none;
+        }
+        li.active{
+            display: block;
+         
+        }
+        .main-box{
+            margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: max-content;
+    position:relative;
+        }
+        .btns-prev{
+            position: absolute;
+            top: 50%;
+        }
+        .btns-next{
+            position: absolute;
+    top: 50%;
+    right: -7%;
+        }
+        img{
+            height: 355px;
+        }
+    </style>
+</head>
+<body>
+  <div class="main-box">
+    <div class="btns-prev">
+        <button id="prev"> < </button>
+    </div>
+    <div class="btns-next">
+        <button id="next">></button>
+  </div>
+   
+    <ul>
+        <li data-slide="1" >
+           <img src="1.jpg">
+        </li>
+        <li data-slide="2">
+            <img src="2.jpg">
+        </li>
+        <li data-slide="3">
+            <img src="1.jpg">
+        </li>
+        <li data-slide="4">
+            <img src="2.jpg">
+        </li>
+        <li data-slide="5">
+            <img src="1.jpg">
+        </li>
+    </ul>
+    
+  </div>
+  <script>
+let prev = document.getElementById('prev');
+let next = document.getElementById('next');
+// let number = document.getElementById('number');
+let allListItems = [...document.querySelectorAll('ul li')];
+console.log(document.querySelectorAll('ul li'));
+console.log(allListItems);
+
+var currentValue = 1;
+
+next.addEventListener('click', function(){
+   
+   if (currentValue == 5) {
+    currentValue=5;
+    } else {
+       currentValue++;
+    }
+
+// //    currentValue++;
+//    setNumber(currentValue);
+ validateFunction(currentValue);
+ 
+});
+
+
+function validateFunction(currentValue)
+  {
+    allListItems.map((item) =>{
+    item.classList.remove('active');
+    // console.log(item.getAttribute('data-slide'))
+    if(currentValue==item.getAttribute('data-slide')){
+        // console.log('match',item);
+        item.classList.add('active');
+    }
+   })
+  }
+
+  validateFunction(currentValue);
+
+// const autoSlide = setInterval(function(){
+//     console.log('change');
+//     validateFunction(currentValue)
+//     currentValue++;
+//     if(currentValue==6){
+//         currentValue=1
+//         // clearInterval(autoSlide);
+//     }
+// }, 5000);
+
+
+prev.addEventListener('click',function(){
+
+if (currentValue == 1) {
+    currentValue=1;
+    } else {
+       currentValue--;
+    }
+
+// setNumber(currentValue);
+validateFunction(currentValue);
+// allListItems.map((item) =>{
+//     item.classList.remove('active');
+//     if(currentValue==item.getAttribute('data-slide')){
+//         console.log('match', item);
+//         item.classList.add('active');
+//     }
+// })
+});
+
+
+// function getNumber(){
+//     let result = allListItems[0].getAttribute('data-slide');
+//      return result;
+  
+// }
+
+  </script>  
+</body>
+</html>

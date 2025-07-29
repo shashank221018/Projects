@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css');
+        .d-none{
+            display: none;
+        }
+        .accordion-data{
+            transition: all 0.4s;
+           /* background: #dfdfdf;*/    
+        }
+        .accordion-one{
+            margin: 10px;
+        }
+    
+        .accordion-one{
+            display: block;
+   
+   
+    border: 1px solid #919191;
+    border-radius: 11px;
+    padding: 10px;
+
+        }
+        .accordion-one button{
+            border: 0;
+    background: none;
+    font-weight: 700;
+    font-size: 18px;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+        }
+        .accordion-data p{
+            padding: 10px;
+        }
+        .accordion-data{
+            max-height: 0;
+        }
+        .accordion-data > *{
+            display: none;
+        }
+        .accordion-one.active .accordion-data{
+            max-height: 500px;
+        }
+        .accordion-one.active .accordion-data > *{
+            display: block;
+        }
+        .accordion-one button::after {
+    font-family: 'FontAwesome';
+    content: "\f078";    
+    float: right;
+}
+.accordion-one.active button::after {    
+    content: "\f106";
+    font-family: 'FontAwesome';
+    font-weight: 800;
+    font-size: 30px;    
+}
+    </style>
+</head>
+<body>
+  <div class="accordion">
+    <div class="accordion-one">
+       
+            <button class="accordion-btn">Accordion one</button>
+      
+      
+        <div class="accordion-data" id="accordion-item">
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+        </div>
+    </div>
+
+    <div class="accordion-one active">
+     
+            <button class="accordion-btn ">Accordion Two</button>
+      
+       
+        <div class="accordion-data" id="accordion-item">
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+        </div>
+    </div>
+  </div>  
+  <script>
+    let btn = [...document.getElementsByClassName('accordion-btn')];
+
+    btn.map((btnitem)=>{
+        btnitem.addEventListener('click',function(){
+            console.log(this.parentNode)
+            let parentwrapper =this.parentNode;
+            parentwrapper.classList.toggle('active');
+        //     if (this.parentNode.classList.contains('active')) {
+        //   this.parentNode.classList.remove('active');
+        // }  
+        })
+     
+    })
+
+
+//     btn.addEventListener('click', (()=>{
+//     //  wrapper.classList.add('d-none');
+// //   if (wrapper.style.display === "none") {
+// //     wrapper.style.display = "block";
+// //   } else {
+// //     wrapper.style.display = "none";
+// //   }
+
+// wrapper.classList.toggle("active");
+//     }));
+  </script>
+
+
+
+</body>
+</html>

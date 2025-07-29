@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .contentbox div{
+            display: flex;
+    justify-content: space-between;
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    background: #dfdfdf;
+    padding: 5px 15px;
+    margin-top: 13px;
+        }
+        .text-center{
+            text-align: center;
+        }
+        #dropdown{
+            padding: 10px;
+    color: #564FF2;
+    border-radius: 6px;
+    border-color: #564FF2;
+    font-weight: 600;
+        }
+        select:focus-visible{
+            outline: 0px;
+        
+        }
+    </style>
+</head>
+<body>
+    <div class="text-center">
+        <h1>Data Filter </h1>
+        <select id="dropdown">
+            <option value="all">All</option>
+            <option value="thane">Thane</option>
+            <option value="airoli">Airoli</option>
+            <option value="panvel">Panvel</option>
+        </select>
+        <div class="contentbox" id="contentbox">
+          <div>
+            <p>Name</p>
+            <p>Location</p>
+          </div>
+        </div>
+    </div>
+ 
+    <script>
+        const wrapperBox = document.getElementById('contentbox');
+
+        const users = [{
+            name:"Revati", 
+            location:"Thane"
+        },
+            { 
+            name:"Mansi",
+            location: "Airoli"
+        },{
+            name:"Sneha",
+        location:"Thane"
+        },
+        {
+            name:"Prachiti",
+        location:"Panvel"
+        },
+        {
+            name:"Hariom",
+        location:"Airoli"
+        }
+        
+    ]
+   
+
+   function dataShow(users){
+    wrapperBox.innerHTML='';
+    users.map((item =>{
+    // let mainwrapeer = document.createElement('div');
+    // let name = document.createElement('p');
+    // let location = document.createElement('p');
+
+    //  name.innerHTML = item.name;
+    //  location.innerHTML = item.location;
+    console.log(item);   
+
+    const htmlStructure = `<div>
+        <p>${item.name}</p>
+        <p>${item.location}</p>
+        </div>`;
+    
+        wrapperBox.insertAdjacentHTML('beforeend',htmlStructure)
+   }))
+   }
+
+
+let selectmenu = document.getElementById('dropdown');
+
+selectmenu.addEventListener('change', function(e){
+    console.log(e.target.value);
+  
+    var locationValue = e.target.value;
+     if(locationValue!='all'){
+ 
+     
+    var filteredusers =  users.filter((user)=>{
+        console.log(locationValue);
+        console.log(user.location)
+        return user.location.toLowerCase()==locationValue;
+        
+    });
+    
+    console.log(filteredusers)
+
+    dataShow(filteredusers);
+}
+else{
+    dataShow(users)
+}
+
+});
+
+       dataShow(users);  
+    </script>
+</body>
+</html>

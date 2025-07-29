@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            text-align: center;
+            font-weight: 800;
+            font-family: 'Montserrat';
+            padding-top: 30px;
+            color: #9452E4;
+        }
+.apitable tr td{
+    border: 1px solid #dfdfdf;
+    padding: 10px;
+}
+.apitable {
+    border-collapse: collapse;
+    width: 70%;
+    margin: 0 15%;
+}
+.apitable tr th{
+    padding: 10px;
+    background: #dfdfdf;
+}
+#btn{
+    padding: 10px 20px;
+    font-family: 'Montserrat';
+    font-weight: 400;
+    border-radius: 30px;
+    background-color: #564FF2;
+    border: 0;
+    color: #fff;
+    margin-bottom: 30px;
+}
+div{
+    text-align: center;
+}
+.main{
+    max-height: 350px;
+    overflow-y: auto;
+
+}
+.main::-webkit-scrollbar{
+    display: none;
+}
+    </style>
+</head>
+<body>
+<div>
+<h1>Fetch API</h1> 
+<button id="btn">Click here</button>
+<div class="main">
+<table class="apitable">
+ <thead>
+  <tr>
+    <th>ID</th>
+    <th>Title</th>
+    <th>Body</th>
+  </tr>
+ </thead> 
+ <tbody id="tableone">
+ </tbody>   
+</table>
+</div>  
+</div>  
+<script>
+let btn = document.getElementById('btn');
+let wrapper = document.getElementsByClassName('main')[0];
+let tbody = document.getElementById('tableone');
+let url = 'https://jsonplaceholder.typicode.com/posts';
+
+function getData(){
+    fetch(url).then(res => res.json()).then(data =>{
+        // for(let i=0; i<=10; i++){
+        //     let tr = document.createElement('tr');
+
+        //     let id = document.createElement('td');
+        //     let title = document.createElement('td');
+        //     let body = document.createElement('td');
+
+        //     id.innerHTML = data[i].id;
+        //     title.innerHTML = data[i].title;
+        //     body.innerHTML = data[i].body;
+
+           
+        //     tr.append(id,title,body);
+
+        //     console.log(tr)
+        //     tbody.append(tr)
+
+        // }
+         data.map((item)=>{
+           let tr= document.createElement('tr');
+
+           let id = document.createElement('td');
+           let title = document.createElement('td');
+           let body = document.createElement('td');
+
+           id.innerHTML = item.id;
+           title.innerHTML = item.title;
+           body.innerHTML = item.body;
+
+           tr.append(id,title,body);
+           console.log(tr)
+           tbody.append(tr)
+         })   
+
+    });
+}
+
+btn.addEventListener('click', (()=>{
+    getData();
+}));
+
+</script>  
+</body>
+</html>
